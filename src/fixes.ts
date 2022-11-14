@@ -44,6 +44,7 @@ export const fixes = {
         return `attribute FrozenArray<${group}>`
       })
       .replace(/float\[\]/gi, 'FrozenArray<float>')
+      .replace(/unsigned long\[\]/gi, 'FrozenArray<unsigned long>')
       .replace(/long\[\]/gi, 'FrozenArray<long>')
   },
 }

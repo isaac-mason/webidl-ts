@@ -106,10 +106,10 @@ function convert(options) {
         var idlString, idl, ts, tsString;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, fetch_idl_1.fetchIDL(options.input)];
+                case 0: return [4 /*yield*/, (0, fetch_idl_1.fetchIDL)(options.input)];
                 case 1:
                     idlString = _a.sent();
-                    return [4 /*yield*/, parse_idl_1.parseIDL(idlString, {
+                    return [4 /*yield*/, (0, parse_idl_1.parseIDL)(idlString, {
                             preprocess: function (idl) {
                                 if (options.emscripten) {
                                     idl = fixes_1.fixes.inheritance(idl);
@@ -120,13 +120,13 @@ function convert(options) {
                         })];
                 case 2:
                     idl = _a.sent();
-                    ts = convert_idl_1.convertIDL(idl, options);
+                    ts = (0, convert_idl_1.convertIDL)(idl, options);
                     tsString = null;
                     if (options.emscripten) {
-                        tsString = print_ts_1.printEmscriptenModule(options.module, ts, options.defaultExport);
+                        tsString = (0, print_ts_1.printEmscriptenModule)(options.module, ts, options.defaultExport);
                     }
                     else {
-                        tsString = print_ts_1.printTs(ts);
+                        tsString = (0, print_ts_1.printTs)(ts);
                     }
                     fs.writeFileSync(options.output, tsString);
                     return [2 /*return*/];
